@@ -1,0 +1,292 @@
+@prefix : <http://rpcw/ontologies/2025/historia/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://rpcw/ontologies/2025/historia/> .
+
+<http://rpcw/ontologies/2025/historia> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://rpcw/ontologies/2025/historia#ajuda
+:ajuda rdf:type owl:ObjectProperty ;
+       rdfs:domain :Pessoa ;
+       rdfs:range :Pessoa .
+
+
+###  http://rpcw/ontologies/2025/historia#casado_com
+:casado_com rdf:type owl:ObjectProperty ;
+            rdfs:domain :Pessoa ;
+            rdfs:range :Pessoa .
+
+
+###  http://rpcw/ontologies/2025/historia#contrata
+:contrata rdf:type owl:ObjectProperty ;
+          rdfs:domain :Agricultor ;
+          rdfs:range :Trabalhador .
+
+
+###  http://rpcw/ontologies/2025/historia#cuida
+:cuida rdf:type owl:ObjectProperty ;
+       rdfs:domain :Pessoa ;
+       rdfs:range :Animais .
+
+
+###  http://rpcw/ontologies/2025/historia#cultiva
+:cultiva rdf:type owl:ObjectProperty ;
+         rdfs:domain :Agricultor ;
+         rdfs:range [ rdf:type owl:Class ;
+                      owl:unionOf ( :Fruta
+                                    :Vegetais
+                                  )
+                    ] .
+
+
+###  http://rpcw/ontologies/2025/historia#faz
+:faz rdf:type owl:ObjectProperty ;
+     rdfs:range :Geleia .
+
+
+###  http://rpcw/ontologies/2025/historia#possui
+:possui rdf:type owl:ObjectProperty ;
+        rdfs:domain :Pessoa ;
+        rdfs:range [ rdf:type owl:Class ;
+                     owl:unionOf ( :Carro
+                                   :Local
+                                 )
+                   ] .
+
+
+###  http://rpcw/ontologies/2025/historia#vendem
+:vendem rdf:type owl:ObjectProperty ;
+        rdfs:domain :Pessoa .
+
+
+###  http://rpcw/ontologies/2025/historia#é_Filho_de
+:é_Filho_de rdf:type owl:ObjectProperty ;
+            rdfs:domain :Pessoa ;
+            rdfs:range :Pessoa .
+
+
+###  http://rpcw/ontologies/2025/historia#é_vizinho_de
+:é_vizinho_de rdf:type owl:ObjectProperty ;
+              owl:inverseOf :é_vizinho_de ;
+              rdfs:domain :Pessoa ;
+              rdfs:range :Pessoa .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://rpcw/ontologies/2025/historia#comeu
+:comeu rdf:type owl:DatatypeProperty ;
+       rdfs:domain :Trabalhador ;
+       rdfs:range xsd:boolean .
+
+
+###  http://rpcw/ontologies/2025/historia#nome
+:nome rdf:type owl:DatatypeProperty ;
+      rdfs:range xsd:string .
+
+
+###  http://rpcw/ontologies/2025/historia#pag/hora
+<http://rpcw/ontologies/2025/historia#pag/hora> rdf:type owl:DatatypeProperty ;
+                                                rdfs:domain :Trabalhador ;
+                                                rdfs:range xsd:integer .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://rpcw/ontologies/2025/historia#Agricultor
+:Agricultor rdf:type owl:Class ;
+            rdfs:subClassOf :Pessoa .
+
+
+###  http://rpcw/ontologies/2025/historia#Animais
+:Animais rdf:type owl:Class .
+
+
+###  http://rpcw/ontologies/2025/historia#Carro
+:Carro rdf:type owl:Class .
+
+
+###  http://rpcw/ontologies/2025/historia#Fruta
+:Fruta rdf:type owl:Class .
+
+
+###  http://rpcw/ontologies/2025/historia#Geleia
+:Geleia rdf:type owl:Class .
+
+
+###  http://rpcw/ontologies/2025/historia#Local
+:Local rdf:type owl:Class .
+
+
+###  http://rpcw/ontologies/2025/historia#Pessoa
+:Pessoa rdf:type owl:Class .
+
+
+###  http://rpcw/ontologies/2025/historia#Trabalhador
+:Trabalhador rdf:type owl:Class ;
+             rdfs:subClassOf :Pessoa .
+
+
+###  http://rpcw/ontologies/2025/historia#Vegetais
+:Vegetais rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://rpcw/ontologies/2025/historia#Alface
+:Alface rdf:type owl:NamedIndividual ,
+                 :Vegetais .
+
+
+###  http://rpcw/ontologies/2025/historia#Ana
+:Ana rdf:type owl:NamedIndividual ,
+              :Pessoa ;
+     :ajuda :Sr.Maria ;
+     :é_Filho_de :Sr.Joao ,
+                 :Sr.Maria ;
+     :nome "Ana" .
+
+
+###  http://rpcw/ontologies/2025/historia#Banana
+:Banana rdf:type owl:NamedIndividual ,
+                 :Fruta .
+
+
+###  http://rpcw/ontologies/2025/historia#Cenoura
+:Cenoura rdf:type owl:NamedIndividual ,
+                  :Vegetais .
+
+
+###  http://rpcw/ontologies/2025/historia#Fazenda
+:Fazenda rdf:type owl:NamedIndividual ,
+                  :Local .
+
+
+###  http://rpcw/ontologies/2025/historia#FazendaGrande
+:FazendaGrande rdf:type owl:NamedIndividual ,
+                        :Local .
+
+
+###  http://rpcw/ontologies/2025/historia#Galinhas
+:Galinhas rdf:type owl:NamedIndividual ,
+                   :Animais .
+
+
+###  http://rpcw/ontologies/2025/historia#Geleia_de_Fruta
+:Geleia_de_Fruta rdf:type owl:NamedIndividual ,
+                          :Geleia .
+
+
+###  http://rpcw/ontologies/2025/historia#Laranjas
+:Laranjas rdf:type owl:NamedIndividual ,
+                   :Fruta .
+
+
+###  http://rpcw/ontologies/2025/historia#Maças
+:Maças rdf:type owl:NamedIndividual ,
+                :Fruta .
+
+
+###  http://rpcw/ontologies/2025/historia#Pedro
+:Pedro rdf:type owl:NamedIndividual ,
+                :Pessoa ;
+       :ajuda :Sr.Joao ;
+       :é_Filho_de :Sr.Joao ,
+                   :Sr.Maria ;
+       :nome "Pedro" .
+
+
+###  http://rpcw/ontologies/2025/historia#Porcos
+:Porcos rdf:type owl:NamedIndividual ,
+                 :Animais .
+
+
+###  http://rpcw/ontologies/2025/historia#Rex
+:Rex rdf:type owl:NamedIndividual ,
+              :Animais .
+
+
+###  http://rpcw/ontologies/2025/historia#Sr.Carlos
+:Sr.Carlos rdf:type owl:NamedIndividual ,
+                    :Agricultor ;
+           :cultiva :Alface ,
+                    :Cenoura ,
+                    :Tomate ;
+           :possui :FazendaGrande ;
+           :vendem :Alface ,
+                   :Cenoura ,
+                   :Tomate ;
+           :é_vizinho_de :Sr.Joao ;
+           :nome "Carlos" .
+
+
+###  http://rpcw/ontologies/2025/historia#Sr.Joao
+:Sr.Joao rdf:type owl:NamedIndividual ;
+         :casado_com :Sr.Maria ;
+         :contrata :Trab1 ,
+                   :Trab2 ;
+         :cuida :Galinhas ,
+                :Porcos ,
+                :Vacas ;
+         :cultiva :Banana ,
+                  :Laranjas ,
+                  :Maças ;
+         :possui :Fazenda ,
+                 :Trator ;
+         :vendem :Banana ,
+                 :Laranjas ,
+                 :Maças ;
+         :nome "João" .
+
+
+###  http://rpcw/ontologies/2025/historia#Sr.Maria
+:Sr.Maria rdf:type owl:NamedIndividual ;
+          :ajuda :Sr.Joao ;
+          :casado_com :Sr.Joao ;
+          :faz :Geleia_de_Fruta ;
+          :vendem :Geleia_de_Fruta ;
+          :nome "Maria" .
+
+
+###  http://rpcw/ontologies/2025/historia#Tomate
+:Tomate rdf:type owl:NamedIndividual ,
+                 :Vegetais .
+
+
+###  http://rpcw/ontologies/2025/historia#Trab1
+:Trab1 rdf:type owl:NamedIndividual ;
+       :comeu "false"^^xsd:boolean ;
+       :nome "Alfredo" ;
+       <http://rpcw/ontologies/2025/historia#pag/hora> 10 .
+
+
+###  http://rpcw/ontologies/2025/historia#Trab2
+:Trab2 rdf:type owl:NamedIndividual ;
+       :comeu "true"^^xsd:boolean ;
+       :nome "Ambrozio" ;
+       <http://rpcw/ontologies/2025/historia#pag/hora> 12 .
+
+
+###  http://rpcw/ontologies/2025/historia#Trator
+:Trator rdf:type owl:NamedIndividual ,
+                 :Carro .
+
+
+###  http://rpcw/ontologies/2025/historia#Vacas
+:Vacas rdf:type owl:NamedIndividual .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

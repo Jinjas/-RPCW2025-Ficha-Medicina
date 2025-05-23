@@ -1,0 +1,42 @@
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+prefix : <http://npcw/ontologies/2025/historia/>
+
+1. Quantas classes estão definidas na Ontologia?
+
+SELECT  (COUNT (DISTINCT ?class) as ?numClasses) WHERE {
+        ?class a owl:Class .
+    }
+
+82
+
+
+2.Quantas Object Properties estão definidas na Ontologia?
+
+SELECT  (COUNT (DISTINCT ?obj) as ?objetos) WHERE {
+        ?obj a owl:ObjectProperty .
+    }
+
+82
+
+3. Quantos indivíduos existem na tua ontologia?
+
+SELECT  (COUNT (DISTINCT ?ind) as ?countInd) WHERE {
+        ?ind a owl:NamedIndividual .
+    }
+
+21
+
+4. Quem planta tomates
+
+SELECT  ?s WHERE {      
+    ?s :cultiva :Tomate .
+    }
+
+
+5. Quem contrata trabalhadores temporários?
+
+SELECT DISTINCT ?s WHERE {      
+    ?s :contrata ?p .
+}
+
+
